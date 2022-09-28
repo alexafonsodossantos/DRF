@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 
 
-Token: 42dbe53bdd3e138d7e36ce42b8b0ecde3a5f3e8c
-
+Token alex: 42dbe53bdd3e138d7e36ce42b8b0ecde3a5f3e8c
+Token boris: a08e5d3d8fa1a5c12707a959799967a9dbe8eb1a
 
 """
 
@@ -151,6 +151,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PERMISSION_CLASSES':(
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
     'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE' : 2
