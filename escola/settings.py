@@ -8,6 +8,11 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
+
+
+Token: 42dbe53bdd3e138d7e36ce42b8b0ecde3a5f3e8c
+
+
 """
 
 from pathlib import Path
@@ -41,6 +46,7 @@ INSTALLED_APPS = [
     
 #    'django-filters',
     'rest_framework',
+    'rest_framework.authtoken',
 
     'cursos'
 ]
@@ -137,10 +143,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #DRF
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES' : (
-        'rest_framework.authentication.SessionAuthentication',
+        #'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        
+        
 
     ),
     'DEFAULT_PERMISSION_CLASSES':(
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    )
+    ),
+    'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE' : 2
 }
+
